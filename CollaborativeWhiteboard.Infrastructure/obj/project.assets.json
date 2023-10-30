@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\azarl\\Desktop\\Patkovians\\CollaborativeWhiteboard\\CollaborativeWhiteboard.Infrastructure\\CollaborativeWhiteboard.Infrastructure.csproj",
-      "projectName": "CollaborativeWhiteboard.Infrastructure",
-      "projectPath": "C:\\Users\\azarl\\Desktop\\Patkovians\\CollaborativeWhiteboard\\CollaborativeWhiteboard.Infrastructure\\CollaborativeWhiteboard.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\azarl\\Desktop\\Patkovians\\CollaborativeWhiteboard\\CollaborativeWhiteboard.Infrastructure\\CollaborativeWhiteboard.DataInfrastructure.csproj",
+      "projectName": "CollaborativeWhiteboard.DataInfrastructure",
+      "projectPath": "C:\\Users\\azarl\\Desktop\\Patkovians\\CollaborativeWhiteboard\\CollaborativeWhiteboard.Infrastructure\\CollaborativeWhiteboard.DataInfrastructure.csproj",
       "packagesPath": "C:\\Users\\azarl\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\azarl\\Desktop\\Patkovians\\CollaborativeWhiteboard\\CollaborativeWhiteboard.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",

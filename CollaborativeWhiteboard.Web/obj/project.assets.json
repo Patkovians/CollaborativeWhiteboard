@@ -12,14 +12,14 @@
           "bin/placeholder/CollaborativeWhiteboard.Core.dll": {}
         }
       },
-      "CollaborativeWhiteboard.Infrastructure/1.0.0": {
+      "CollaborativeWhiteboard.DataInfrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "compile": {
-          "bin/placeholder/CollaborativeWhiteboard.Infrastructure.dll": {}
+          "bin/placeholder/CollaborativeWhiteboard.DataInfrastructure.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CollaborativeWhiteboard.Infrastructure.dll": {}
+          "bin/placeholder/CollaborativeWhiteboard.DataInfrastructure.dll": {}
         }
       }
     }
@@ -30,16 +30,16 @@
       "path": "../CollaborativeWhiteboard.Core/CollaborativeWhiteboard.Core.csproj",
       "msbuildProject": "../CollaborativeWhiteboard.Core/CollaborativeWhiteboard.Core.csproj"
     },
-    "CollaborativeWhiteboard.Infrastructure/1.0.0": {
+    "CollaborativeWhiteboard.DataInfrastructure/1.0.0": {
       "type": "project",
-      "path": "../CollaborativeWhiteboard.Infrastructure/CollaborativeWhiteboard.Infrastructure.csproj",
-      "msbuildProject": "../CollaborativeWhiteboard.Infrastructure/CollaborativeWhiteboard.Infrastructure.csproj"
+      "path": "../CollaborativeWhiteboard.Infrastructure/CollaborativeWhiteboard.DataInfrastructure.csproj",
+      "msbuildProject": "../CollaborativeWhiteboard.Infrastructure/CollaborativeWhiteboard.DataInfrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "CollaborativeWhiteboard.Core >= 1.0.0",
-      "CollaborativeWhiteboard.Infrastructure >= 1.0.0"
+      "CollaborativeWhiteboard.DataInfrastructure >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -78,8 +78,8 @@
             "C:\\Users\\azarl\\Desktop\\Patkovians\\CollaborativeWhiteboard\\CollaborativeWhiteboard.Core\\CollaborativeWhiteboard.Core.csproj": {
               "projectPath": "C:\\Users\\azarl\\Desktop\\Patkovians\\CollaborativeWhiteboard\\CollaborativeWhiteboard.Core\\CollaborativeWhiteboard.Core.csproj"
             },
-            "C:\\Users\\azarl\\Desktop\\Patkovians\\CollaborativeWhiteboard\\CollaborativeWhiteboard.Infrastructure\\CollaborativeWhiteboard.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\azarl\\Desktop\\Patkovians\\CollaborativeWhiteboard\\CollaborativeWhiteboard.Infrastructure\\CollaborativeWhiteboard.Infrastructure.csproj"
+            "C:\\Users\\azarl\\Desktop\\Patkovians\\CollaborativeWhiteboard\\CollaborativeWhiteboard.Infrastructure\\CollaborativeWhiteboard.DataInfrastructure.csproj": {
+              "projectPath": "C:\\Users\\azarl\\Desktop\\Patkovians\\CollaborativeWhiteboard\\CollaborativeWhiteboard.Infrastructure\\CollaborativeWhiteboard.DataInfrastructure.csproj"
             }
           }
         }

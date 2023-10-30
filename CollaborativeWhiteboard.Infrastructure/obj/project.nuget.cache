@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/XFKjbKg4eDKlnaNpfAA9eMeUUXRZS4VFpL8FBTpHJtaH7JGGiyN/1PhSRPJjC2YqOdhe9DGYWVHxJC60pWpqA==",
+  "dgSpecHash": "c2u4iBg+U/npxO3m6DCuKEE7t7NkZftMxybFaFVjnSa2aTk9XivPnOARbjoTJWAWFD+OsNU67VGEj2tSvIrEHA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\azarl\\Desktop\\Patkovians\\CollaborativeWhiteboard\\CollaborativeWhiteboard.Infrastructure\\CollaborativeWhiteboard.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\azarl\\Desktop\\Patkovians\\CollaborativeWhiteboard\\CollaborativeWhiteboard.Infrastructure\\CollaborativeWhiteboard.DataInfrastructure.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CollaborativeWhiteboard.Core\CollaborativeWhiteboard.Core.csproj" />
+    <ProjectReference Include="..\CollaborativeWhiteboard.Infrastructure\CollaborativeWhiteboard.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
