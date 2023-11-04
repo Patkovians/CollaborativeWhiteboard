@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CollaborativeWhiteboard.Core\CollaborativeWhiteboard.Core.csproj" />
+    <ProjectReference Include="..\CollaborativeWhiteboard.DataInfrastructure\CollaborativeWhiteboard.DataInfrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DTO\" />
+    <Folder Include="Enum\" />
+    <Folder Include="Extension\" />
+    <Folder Include="Helper\" />
+    <Folder Include="Constant\" />
+  </ItemGroup>
+
+</Project>

@@ -7,8 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CollaborativeWhiteboard.Common\CollaborativeWhiteboard.Common.csproj" />
     <ProjectReference Include="..\CollaborativeWhiteboard.Core\CollaborativeWhiteboard.Core.csproj" />
-    <ProjectReference Include="..\CollaborativeWhiteboard.Infrastructure\CollaborativeWhiteboard.Infrastructure.csproj" />
+    <ProjectReference Include="..\CollaborativeWhiteboard.DataInfrastructure\CollaborativeWhiteboard.DataInfrastructure.csproj" />
   </ItemGroup>
 
 </Project>

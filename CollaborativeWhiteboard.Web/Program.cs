@@ -2,8 +2,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+// Configure AutoMapper
+builder.Services.AddAutoMapper(typeof(CollaborativeWhiteboard.Common.MappingProfile));
+
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
