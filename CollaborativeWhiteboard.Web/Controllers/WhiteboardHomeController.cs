@@ -4,11 +4,11 @@ using System.Diagnostics;
 
 namespace CollaborativeWhiteboard.Web.Controllers
 {
-    public class HomeController : Controller
+    public class WhiteboardHomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<WhiteboardHomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public WhiteboardHomeController(ILogger<WhiteboardHomeController> logger)
         {
             _logger = logger;
         }

@@ -14,6 +14,12 @@ public class WhiteboardController : Controller
         _whiteboardService = whiteboardService;
     }
 
+    public IActionResult Index()
+    {
+        return View();
+    }
+
+
     // Example of an action method
     public IActionResult Create()
     {
