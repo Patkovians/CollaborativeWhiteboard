@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollaborativeWhiteboard.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollaborativeWhiteboard.DataInfrastructure", "CollaborativeWhiteboard.DataInfrastructure\CollaborativeWhiteboard.DataInfrastructure.csproj", "{3238E493-57E8-4116-AA2F-58F79230BA09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollaborativeWhiteboard.Common", "CollaborativeWhiteboard.Common\CollaborativeWhiteboard.Common.csproj", "{F7AE903B-56EA-4628-AE69-93FD4FFF4E50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollaborativeWhiteboard.Common", "CollaborativeWhiteboard.Common\CollaborativeWhiteboard.Common.csproj", "{F7AE903B-56EA-4628-AE69-93FD4FFF4E50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

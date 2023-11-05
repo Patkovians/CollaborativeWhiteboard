@@ -1,0 +1,22 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <EntityFrameworkCoreVersion>7.0.13</EntityFrameworkCoreVersion>
+    <AutoMapperVersion>12.0.1</AutoMapperVersion>
+  </PropertyGroup>
+  <ItemGroup>
+
+    <!-- AutoMapper related packages -->
+    <PackageVersion Include="AutoMapper" Version="$(AutoMapperVersion)" />
+    <PackageVersion Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="$(AutoMapperVersion)" />
+    <PackageVersion Include="AutoMapper" Version="$(AutoMapperVersion)" />
+
+    <!-- Entity Framework Core related packages -->
+    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="$(EntityFrameworkCoreVersion)" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="$(EntityFrameworkCoreVersion)" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(EntityFrameworkCoreVersion)" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="$(EntityFrameworkCoreVersion)" />
+
+
+  </ItemGroup>
+</Project>
