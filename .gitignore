@@ -422,3 +422,5 @@ ehthumbs.db
 
 # Visual Studio for
 .vs/
+obj/
+bin/
