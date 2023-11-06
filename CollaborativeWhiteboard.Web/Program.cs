@@ -1,4 +1,5 @@
 using CollaborativeWhiteboard.Web.Extensions;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 

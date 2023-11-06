@@ -1,7 +1,23 @@
 ﻿@{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Whiteboard";
 }
 
-<h2>Index</h2>
+<link rel="stylesheet" href="~/css/whiteboard.css">
 
-<p>Hello from our View Template!</p>
+<h2>@ViewData["Title"]</h2>
+
+<div id="whiteboard-container">
+    <div id="toolbar">
+        <!-- Tool selection like pens, erasers, colors -->
+        <button id="pen">Pen</button>
+        <button id="eraser">Eraser</button>
+        <!-- More tools here -->
+    </div>
+    <canvas id="whiteboard-canvas">
+        Your browser does not support the HTML canvas tag.
+    </canvas>
+</div>
+
+@section Scripts {
+    <script src="~/js/whiteboard.js"></script>
+}
