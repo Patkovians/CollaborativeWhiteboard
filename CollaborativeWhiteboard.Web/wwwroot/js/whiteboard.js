@@ -1,14 +1,27 @@
 // Drawing Module
 class Whiteboard {
-    constructor(canvas, context) {
+    constructor(canvas) {
         this.canvas = canvas;
-        this.context = context;
-        this.currentTool = new PencilTool(this.context);
-        // ... other properties like color, lineWidth
+        this.context = canvas.getContext('2d');
+        this.tools = {
+            pencil: new PencilTool(this.context),
+            eraser: new EraserTool(this.context)
+        };
+        this.currentTool = this.tools.pencil; // default to pencil
+        this.bindEvents();
     }
-    
-    setTool(tool) {
-        this.currentTool = tool;
+
+    setTool(toolName) {
+        if (this.tools[toolName]) {
+            this.currentTool = this.tools[toolName];
+            this.currentTool.setup(); // Set up the tool each time it's selected
+        }
+    }
+
+    bindEvents() {
+        this.canvas.addEventListener('mousedown', (e) => this.currentTool.handleMouseDown(e));
+        this.canvas.addEventListener('mousemove', (e) => this.currentTool.handleMouseMove(e));
+        this.canvas.addEventListener('mouseup', (e) => this.currentTool.handleMouseUp(e));
     }
     
     // ... methods for drawing, e.g., beginPath, movePath, endPath
@@ -20,74 +33,88 @@ class Tool {
         this.context = context;
         // ... shared tool properties like color, lineWidth
     }
+
+    setup() {
+        // Setup common to all tools; override in subclasses
+    }
     
-    handleMouseDown() {
-        // Tool-specific logic for mouse down
-    }
-
-    handleMouseMove() {
-        // Tool-specific logic for mouse move
-    }
-
-    handleMouseUp() {
-        // Tool-specific logic for mouse up
-    }
-
-    // ... other shared methods and properties
-}
-
-class PencilTool extends Tool {
-    constructor(context) {
-        super(context);
-        this.context.strokeStyle = '#ffffff'; // default pencil color
-        this.context.lineWidth = 2; // default line width
-    }
-
     handleMouseDown(e) {
+        var mousePos = this.getMousePos(this.context.canvas, e);
         this.context.beginPath();
-        this.context.moveTo(e.offsetX, e.offsetY);
-        console.log("Location (x,y):  " + "(" + e.offsetX + ", " + e.offsetY + ")");
+        this.context.moveTo(mousePos.x, mousePos.y);
+        this.mouseDown = true;
     }
 
     handleMouseMove(e) {
         if (this.mouseDown) {
-            this.context.lineTo(e.offsetX, e.offsetY);
+            var mousePos = this.getMousePos(this.context.canvas, e);
+            this.context.lineTo(mousePos.x, mousePos.y);
             this.context.stroke();
         }
     }
 
     handleMouseUp(e) {
-        this.context.closePath();
         this.mouseDown = false;
+        this.context.closePath(); // Common behavior for all tools
+    }
+
+    // Adjust the offset relative to canvas
+    getMousePos(canvas, evt) {
+        var rect = canvas.getBoundingClientRect();
+        return {
+            x: evt.clientX - rect.left,
+            y: evt.clientY - rect.top
+        };
+    }
+}
+
+class PencilTool extends Tool {
+    constructor(context) {
+        super(context);
+        this.context.strokeStyle = "black"; // default pencil color
+        this.context.lineWidth = 2; // default line width
+    }
+
+    setup() {
+        this.context.globalCompositeOperation = 'source-over'; // normal drawing mode
+        this.context.strokeStyle = 'black'; // default pencil color
+        this.context.lineWidth = 5; // default line width
+    }
+
+    handleMouseDown(e) {
+        super.handleMouseDown(e);
+    }
+
+    handleMouseMove(e) {
+        super.handleMouseMove(e);
+    }
+
+    handleMouseUp(e) {
+        super.handleMouseUp(e);
     }
 }
 
 class EraserTool extends Tool {
     constructor(context) {
         super(context);
-        this.context.globalCompositeOperation = 'destination-out'; // erase mode
         this.context.lineWidth = 5; // default eraser width
     }
 
-    handleMouseDown(e) {
-        this.context.beginPath();
-        this.context.moveTo(e.offsetX, e.offsetY);
-        this.mouseDown = true;
-        console.log("Location (x,y):  " + "(" + e.offsetX + ", " + e.offsetY + ")");
+    setup() {
+        this.context.globalCompositeOperation = 'destination-out'; // erase mode
+        this.context.strokeStyle = 'rgba(0,0,0,1)'; // required for destination-out to work
+    }
 
+    handleMouseDown(e) {
+        super.handleMouseDown(e);
     }
 
     handleMouseMove(e) {
-        if (this.mouseDown) {
-            this.context.lineTo(e.offsetX, e.offsetY);
-            this.context.stroke();
-        }
+        super.handleMouseMove(e);
     }
 
     handleMouseUp(e) {
-        this.context.closePath();
-        this.mouseDown = false;
-        this.context.globalCompositeOperation = 'source-over'; // reset to default mode
+        super.handleMouseUp(e);
     }
 }
 
@@ -96,37 +123,12 @@ class EraserTool extends Tool {
 // UI Module
 document.addEventListener('DOMContentLoaded', function() {
     const canvas = document.getElementById('whiteboard-canvas');
-    const context = canvas.getContext('2d');
-    let whiteboard = new Whiteboard(context, context);
+    let whiteboard = new Whiteboard(canvas);
 
-    // Instantiate tools
-    let pencil = new PencilTool(context);
-    let eraser = new EraserTool(context);
+    // Tool switch example
+    document.getElementById('pen').addEventListener('click', () => whiteboard.setTool('pencil'));
+    document.getElementById('eraser').addEventListener('click', () => whiteboard.setTool('eraser'));
 
-    // Attach event listeners to canvas
-    canvas.addEventListener('mousedown', (e) => {
-        whiteboard.currentTool.handleMouseDown(e);
-    });
-
-    canvas.addEventListener('mousemove', (e) => {
-        whiteboard.currentTool.handleMouseMove(e);
-    });
-
-    canvas.addEventListener('mouseup', (e) => {
-        whiteboard.currentTool.handleMouseUp(e);
-    });
-
-    // Tool selection
-    document.getElementById('pen').addEventListener('click', () => {
-        whiteboard.setTool(pencil);
-        console.log('Pencil tool selected');
-    });
-
-    document.getElementById('eraser').addEventListener('click', () => {
-        whiteboard.setTool(eraser);
-        console.log('Eraser tool selected');
-    });
-
-
-    // ... other UI controls
+    // Make sure the initial tool setup is called when the application starts
+    whiteboard.currentTool.setup();
 });

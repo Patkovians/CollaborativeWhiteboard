@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Whiteboard";
+    ViewData["Title"] = "CreativeCluster";
 }
 
 <link rel="stylesheet" href="~/css/whiteboard.css">
@@ -13,11 +13,7 @@
         <button id="eraser">Eraser</button>
         <!-- More tools here -->
     </div>
-    <canvas id="whiteboard-canvas">
+    <canvas id="whiteboard-canvas" width="800" height="500">
         Your browser does not support the HTML canvas tag.
     </canvas>
 </div>
-
-@section Scripts {
-    <script src="~/js/whiteboard.js"></script>
-}
