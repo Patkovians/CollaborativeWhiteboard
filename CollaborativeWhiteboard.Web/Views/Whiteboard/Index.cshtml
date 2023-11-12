@@ -2,18 +2,22 @@
     ViewData["Title"] = "CreativeCluster";
 }
 
-<link rel="stylesheet" href="~/css/whiteboard.css">
+@section Scripts {
+    <script src="~/js/whiteboard.js"></script>
+}
+
 
 <h2>@ViewData["Title"]</h2>
 
-<div id="whiteboard-container">
-    <div id="toolbar">
-        <!-- Tool selection like pens, erasers, colors -->
-        <button id="pen">Pen</button>
-        <button id="eraser">Eraser</button>
-        <!-- More tools here -->
+<div id="whiteboard-container" class="mb-3">
+    <div id="toolbar" class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <button type="button" id="pen" class="btn btn-secondary">Pen</button>
+        <button type="button" id="eraser" class="btn btn-secondary">Eraser</button>
+        <button type="button" id="clear-canvas" class="btn btn-secondary">Clear</button> <!-- New button -->
     </div>
-    <canvas id="whiteboard-canvas" width="800" height="500">
+
+    <canvas id="whiteboard-canvas" class="border" width="800" height="500">
         Your browser does not support the HTML canvas tag.
     </canvas>
 </div>
+

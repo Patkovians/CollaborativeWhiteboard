@@ -5,13 +5,15 @@ class Whiteboard {
         this.context = canvas.getContext('2d');
         this.tools = {
             pencil: new PencilTool(this.context),
-            eraser: new EraserTool(this.context)
+            eraser: new EraserTool(this.context),
+            clearCanvas: new ClearCanvasTool(this.context)
         };
         this.currentTool = this.tools.pencil; // default to pencil
         this.bindEvents();
     }
 
     setTool(toolName) {
+
         if (this.tools[toolName]) {
             this.currentTool = this.tools[toolName];
             this.currentTool.setup(); // Set up the tool each time it's selected
@@ -97,12 +99,13 @@ class PencilTool extends Tool {
 class EraserTool extends Tool {
     constructor(context) {
         super(context);
-        this.context.lineWidth = 5; // default eraser width
+        this.context.lineWidth = 20; // default eraser width
     }
 
     setup() {
         this.context.globalCompositeOperation = 'destination-out'; // erase mode
         this.context.strokeStyle = 'rgba(0,0,0,1)'; // required for destination-out to work
+        this.context.lineWidth = 20; // default eraser width
     }
 
     handleMouseDown(e) {
@@ -118,6 +121,18 @@ class EraserTool extends Tool {
     }
 }
 
+class ClearCanvasTool extends Tool {
+    constructor(context) {
+        super(context);
+    }
+
+    setup() {
+        const canvas = document.getElementById('whiteboard-canvas');
+        this.context.clearRect(0, 0, canvas.width, canvas.height);
+        console.log("1 Cleared the canvas");
+    }
+}
+
 // ... other tool classes
 
 // UI Module
@@ -128,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Tool switch example
     document.getElementById('pen').addEventListener('click', () => whiteboard.setTool('pencil'));
     document.getElementById('eraser').addEventListener('click', () => whiteboard.setTool('eraser'));
-
+    document.getElementById('clear-canvas').addEventListener('click', () => whiteboard.setTool('clearCanvas'));
     // Make sure the initial tool setup is called when the application starts
     whiteboard.currentTool.setup();
 });
