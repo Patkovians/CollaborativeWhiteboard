@@ -1,7 +1,23 @@
 ﻿@{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "CreativeCluster";
 }
 
-<h2>Index</h2>
+@section Scripts {
+    <script src="~/js/whiteboard.js"></script>
+}
 
-<p>Hello from our View Template!</p>
+
+<h2>@ViewData["Title"]</h2>
+
+<div id="whiteboard-container" class="mb-3">
+    <div id="toolbar" class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <button type="button" id="pen" class="btn btn-secondary">Pen</button>
+        <button type="button" id="eraser" class="btn btn-secondary">Eraser</button>
+        <button type="button" id="clear-canvas" class="btn btn-secondary">Clear</button> <!-- New button -->
+    </div>
+
+    <canvas id="whiteboard-canvas" class="border" width="800" height="500">
+        Your browser does not support the HTML canvas tag.
+    </canvas>
+</div>
+

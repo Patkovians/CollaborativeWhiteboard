@@ -1,0 +1,88 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+#toolbar {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: flex-start; /* Align buttons to the left */
+    padding: 5px;
+    /* ... rest of your styles ... */
+}
+
+button {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    button:hover {
+        background-color: #5a6268;
+    }
+
+    button:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(130, 138, 145, 0.5);
+    }
+
+#whiteboard-container {
+    display: flex; /* Use flexbox to center the canvas */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 80vh; /* Set to a percentage of the viewport height */
+    margin: auto; /* This will aid in centering if flexbox is unsupported */
+}
+
+/* Canvas styles */
+#whiteboard-canvas {
+    border: 1px solid #000; /* Just to make the canvas visible if it doesn't have content yet */
+    /* Ensure the canvas element has a defined size */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #toolbar {
+        flex-direction: column;
+    }
+
+    button {
+        margin-bottom: 10px;
+    }
+
+    #whiteboard-canvas {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Accessibility improvements */
+button {
+    position: relative;
+}
+
+    button::after {
+        content: attr(aria-label);
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
